@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+<style>
+    body {
+        background-color: #222;
+    }
+    .intro-header {
+        background-color: #222;
+        background-position: right;
+    }
+    @media (min-width: 768px) {
+        body {
+            -webkit-animation: toDarkBG ease-in-out .5s;
+            -o-animation: toDarkBG ease-in-out .5s;
+            animation: toDarkBG ease-in-out .5s;
+        }
+        .intro-header {
+            -webkit-animation: toDarkBG ease-in-out .5s;
+            -o-animation: toDarkBG ease-in-out .5s;
+            animation: toDarkBG ease-in-out .5s;
+        }
+    }
+    @keyframes toDarkBG
+    {
+        from {background-color:#fff;}
+        to {background-color: #222;}
+    }
+    blockquote {
+        border-color: #424242 !important;
+    }
+    .comment {
+        margin-top: 150px;
+    }
+
+    @media (min-width: 768px) {
+        .post-container {
+            padding-right: 0 !important;
+        }
+    }
+
+    img {
+        -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27);
+        -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27);
+        -o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27);
+        border-radius: 4px;
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" style="color: #565656">
+
+{% include nav.html %}
+
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{% if page.header-img %}{{ page.header-img }}{% else %}none{% endif %}');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1 style="font-weight: 900">{% if page.title-text %}{{ page.title-text }}{% else if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading">{{ page.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+            {{ content }}
+
+            {% if site.disqus_username %}
+            <!-- disqus 评论框 start -->
+            <div class="comment">
+                <div id="disqus_thread" class="disqus-thread"></div>
+            </div>
+            <!-- disqus 评论框 end -->
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% include footer.html %}
+
+
+{% if site.disqus_username %}
+<!-- disqus start -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{page.id}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus end -->
+{% endif %}

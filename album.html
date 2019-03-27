@@ -1,0 +1,12 @@
+---
+layout: album
+title: Album
+title-text: Light & Shadow
+header-img: 'https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/bg-album.png'
+description: ""
+---
+
+<div class="post-container">
+    {% capture album_md %}{% include album/album.md %}{% endcapture %}
+    {{ album_md | markdownify }}
+</div>

@@ -1,0 +1,236 @@
+---
+layout:     post
+title:      "N-Queens I / II"
+subtitle:   "LeetCode 51 / 52"
+date:       2018-04-13 18:42:00
+author:     "Jiupeng Zhang"
+header-img: "img/in-post/coding.jpg"
+tags:
+    - LeetCode
+    - Algorithm
+---
+题目出处: [N-Queens](https://leetcode.com/problems/n-queens/), [N-Queens II](https://leetcode.com/problems/n-queens-ii/)
+
+## N-Queens
+
+> The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.<br><br>
+![](https://leetcode.com/static/images/problemset/8-queens.png)<br><br>
+> Given an integer n, return all distinct solutions to the n-queens puzzle.<br><br>
+> Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space respectively.
+
+这里需要注意的是，两个皇后不能出现在同一行，同一列或同一斜线上。题目要求输出所有n个皇后共存的局面。
+
+**解题思路：**
+
+先列出皇后摆放位置的四个约束（C0 ~ C3）：
+0. 两皇后不能**共行** `—`
+1. 两皇后不能**共列** `|`
+2. 两皇后不能同时出现在**同一正斜线**方向上 `/`
+3. 两皇后不能同时出现在**同一反斜线**方向上 `\`
+
+解题思路是在上述四个约束条件下，对每一行皇后出现的位置做枚举，并检查当前局面是否满足条件。若满足条件，继续搜索下一行皇后出现的合理位置；若不满足条件，则进行**回溯**，并重新尝试上一行皇后的合理位置。
+
+有了基本的思路后，我们会发现，这种按行逐一尝试皇后合理位置的模式，确保了两个皇后不会出现在同一行中，因此，这种方法自然满足了上述约束条件C0。我们检查局面的时候，只需要检查新添加的皇后是否满足约束条件C1、C2和C3即可。当然，这个检查局面的过程会被频繁的调用，为了节省开销，我们采用Hash的思路来记录当前局面下存在的约束，如下图所示：
+
+![](http://7xp1jv.com1.z0.glb.clouddn.com/18-4-13/4765656.jpg)
+
+当然，这里我们也可以换一种说法：一旦我们在棋盘上放置了一位皇后，她便霸占了棋盘四个方向上的所有位置（也就是添加了四个新约束），由于皇后们的上场顺序是一排一排来尝试，所以自然不会有两位皇后站在同一排，也就是说，我们可以仅记录该名皇后霸占了哪一列（C1），哪一正/反斜线（C3，C2）即可。当下一排的皇后来站队的时候，如果和前面某一位皇后发生了冲突（又称“抢地盘”），就说明了这个局面真的是很糟糕~
+
+咳咳~ 下面回到正轨，我们来分析一下负责记录当前局面约束的三个Hash函数C1，C2和C3，设棋盘长度为n，皇后位置为（i，j）。首先求出需要保存这三类约束需要的长度，C1负责记录的是当前皇后占据的列，所以长度为n；C2和C3记录了斜线方向上的约束，长度均为2n-1。
+
+最终得到三个约束函数，
+
+```
+C1 = j;
+C2 = i + j - 1;
+C3 = n - i + j;
+```
+
+如果使用数组来记录，需要转为0-index的函数，即
+
+```
+C1 = j;
+C2 = i + j;
+C3 = n - i + j - 1;
+```
+
+思路解释的差不多了，上代码。
+
+**递归解法：**
+
+```java
+class Solution {
+    public List<List<String>> solveNQueens(int n) {
+        List<List<String>> result = new ArrayList<>();
+        boolean[] c1 = new boolean[n];
+        boolean[] c2 = new boolean[2 * n - 1];
+        boolean[] c3 = new boolean[2 * n - 1];
+        solveNQueens(result, n, c1, c2, c3, 0, new ArrayList<Integer>());
+        return result;
+    }
+    public void solveNQueens(List<List<String>> result, int n,
+                             boolean[] c1, boolean[] c2, boolean[] c3,
+                             int row, List<Integer> acc) {
+        if (row == n) {
+            // 已经找到了满足条件的n个皇后，记录当前局面
+            result.add(new ArrayList<String>(n) {% raw %}{{
+                for (int row = 0; row < n; row++) {
+                    char[] line = new char[n];
+                    Arrays.fill(line, '.');
+                    line[acc.get(row)] = 'Q';
+                    add(new String(line));
+                }
+            }}{% endraw %});
+            return;
+        }
+
+        // 尝试将皇后放置在当前行每个位置的可行性
+        for (int j = 0; j < n; j++) {
+            if (c1[j] || c2[row + j] || c3[n - row + j - 1]) {
+                // 当前位置不满足条件，继续尝试
+                continue;
+            }
+
+            // 记录当前约束
+            c1[j] = c2[row + j] = c3[n - row + j - 1] = true;
+            acc.add(j); // 记录当前满足条件的位置
+
+            // 进入下一行迭代
+            solveNQueens(result, n, c1, c2, c3, row + 1, acc);
+
+            // 发生回溯，恢复现场
+            c1[j] = c2[row + j] = c3[n - row + j - 1] = false;
+            acc.remove(acc.size() - 1);
+        }
+    }
+}
+```
+
+**非递归解法：**
+
+```java
+class Solution {
+    public List<List<String>> solveNQueens(int n) {
+        List<List<String>> result = new ArrayList<>();
+        boolean[] c1 = new boolean[n];
+        boolean[] c2 = new boolean[2 * n - 1];
+        boolean[] c3 = new boolean[2 * n - 1];
+        List<Integer> acc = new ArrayList<>();
+        int i = 0, j = 0;
+
+        while (true) {
+            if (i == n || j == n) {
+                if (i == 0) {
+                    // j == n
+                    break; // 第一行所有位置均枚举完，退出程序
+                }
+                if (i == n) {
+                    // 已经找到了满足条件的n个皇后，记录当前局面
+                    result.add(new ArrayList<String>(n) {% raw %}{{
+                        for (int row = 0; row < n; row++) {
+                            char[] line = new char[n];
+                            Arrays.fill(line, '.');
+                            line[acc.get(row)] = 'Q';
+                            add(new String(line));
+                        }
+                    }}{% endraw %});
+                }
+                // 回溯到上一行，继续寻找其它可能
+                int prevJ = acc.remove(acc.size() - 1); // 弹出上层皇后的j
+                c1[prevJ] = c2[(i - 1) + prevJ] = c3[n - (i - 1) + prevJ - 1] = false; // 释放上层皇后的三个约束
+                i--; // 回到上一行
+                j = prevJ + 1; // 尝试下一个位置
+                continue;
+            }
+
+            // 检查当前皇后是否满足条件
+            if (!c1[j] && !c2[i + j] && !c3[n - i + j - 1]) {
+                acc.add(j); // 保存当前皇后的位置
+                c1[j] = c2[i + j] = c3[n - i + j - 1] = true; // 记录其约束
+                i++; // 进入下一行
+                j = 0; // 从头枚举下一行皇后的位置
+            } else {
+                j++; // 继续尝试当前行的下一个位置
+            }
+        }
+
+        return result;
+    }
+}
+```
+
+## N-Queens II
+
+> Follow up for N-Queens problem.<br><br>Now, instead outputting board configurations, return the total number of distinct solutions.
+
+这道题是上一题的简化版，仅输出局面的个数即可，解题思路没有变化，所以我们直接来看代码：
+
+**递归解法：**
+
+```java
+class Solution {
+    int count = 0;
+    public int totalNQueens(int n) {
+        totalNQueens(n, new boolean[n], new boolean[2 * n - 1], new boolean[2 * n - 1], 0);
+        return count;
+    }
+    public void totalNQueens(int n, boolean[] c1, boolean[] c2, boolean[] c3, int row) {
+        if (row == n) {
+            count ++;
+            return;
+        }
+        for (int j = 0; j < n; j++) {
+            if (c1[j] || c2[row + j] || c3[n - row + j - 1]) {
+                continue;
+            }
+            c1[j] = c2[row + j] = c3[n - row + j - 1] = true;
+            count ++;
+            totalNQueens(n, c1, c2, c3, row + 1);
+            c1[j] = c2[row + j] = c3[n - row + j - 1] = false;
+            count --;
+        }
+    }
+}
+```
+
+**非递归解法：**
+
+```java
+class Solution {
+    public int totalNQueens(int n) {
+        int count = 0;
+        boolean[] c1 = new boolean[n];
+        boolean[] c2 = new boolean[2 * n - 1];
+        boolean[] c3 = new boolean[2 * n - 1];
+        List<Integer> acc = new ArrayList<>();
+        int i = 0, j = 0;
+
+        while (true) {
+            if (i == n || j == n) {
+                if (i == 0) {
+                    break;
+                }
+                if (i == n) {
+                    count ++;
+                }
+                int prevJ = acc.remove(acc.size() - 1);
+                c1[prevJ] = c2[(i - 1) + prevJ] = c3[n - (i - 1) + prevJ - 1] = false;
+                i --;
+                j = prevJ + 1;
+                continue;
+            }
+
+            if (!c1[j] && !c2[i + j] && !c3[n - i + j - 1]) {
+                acc.add(j);
+                c1[j] = c2[i + j] = c3[n - i + j - 1] = true;
+                i ++;
+                j = 0;
+            } else {
+                j ++;
+            }
+        }
+
+        return count;
+    }
+}
+```
