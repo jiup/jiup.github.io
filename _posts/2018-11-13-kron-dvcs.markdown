@@ -39,7 +39,7 @@ $ kron
 
 如果你看到了下图中的界面，那么恭喜你安装成功啦，下面一起来看看如何使用Kron吧！
 
-![image-20190302114804609](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302114804609.png)
+![image-20190302114804609](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302114804609.png)
 
 
 
@@ -54,7 +54,7 @@ $ kron
 $ kron -h add
 ```
 
-![image-20190302114940910](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302114940910.png)
+![image-20190302114940910](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302114940910.png)
 
 
 要建立新仓库，请先移动至目标根目录，然后执行，
@@ -63,13 +63,13 @@ $ kron -h add
 $ kron init
 ```
 
-![image-20190302115717994](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302115717994.png)
+![image-20190302115717994](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302115717994.png)
 
 若没有任何错误提示返回，则默认该操作成功啦，有心的同学可以发现，该目录下多出了一个名为`.kron`的目录以及一个`.kronignore`文件。没错，Kron就是通过维护`.kron`目录下面的索引文件来追踪文件并维护版本关系的；至于`.kronignore`文件，如果大家熟悉Git的话，其实它则和`.gitignore`非常相似，可以用来抑制一些不需要版本控制的文件/目录。
 
 现在，我们已经建立了版本仓库，但该目录下并没有任何文件，也没有任何文件被追踪，所以让我们先添加一些内容，`touch a b c`。
 
-![image-20190302120520159](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302120520159.png)
+![image-20190302120520159](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302120520159.png)
 
 
 
@@ -79,7 +79,7 @@ $ kron init
 $ kron add a
 ```
 
-![image-20190302120948197](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302120948197.png)
+![image-20190302120948197](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302120948197.png)
 
 如果有更多的文件需要加入到该版本，我们可以通过`add`命令一次添加多个文件/目录到暂存区（如`kron add a b c` 或者 `kron add a* ./dir/*`）。若该版本需要提交的全部内容均已加入到了暂存区，我们就可以通过`commit`命令提交当前版本了。（注：如果需要自定义仓库的名称或者提交者信息，可以使用`kron config`命令，Kron默认的仓库名为缺省值，提交者信息默认为用户在操作系统注册的名称）
 
@@ -89,21 +89,21 @@ $ kron add a
 $ kron commit -m 'initial commit (added file a)'
 ```
 
-![image-20190302122644390](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302122644390.png)
+![image-20190302122644390](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302122644390.png)
 
 恭喜你的第一个版本已经提交成功！（`kron status`可以注意到b, c没有被追踪的提示信息，如果我并不关注这些文件，不想再看到这些烦人的提示，把它们加入到`.kronignore`列表中即可）
 
-![image-20190302123530430](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302123530430.png)
+![image-20190302123530430](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302123530430.png)
 
 大意的我突然发现a里面貌似还没添加任何内容，于是我在里面加了点佐料，然后还准备在下一版本中同时提交`b`，`c`两个文件。先把它们加入到暂存区。
 
-![image-20190302124247384](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302124247384.png)
+![image-20190302124247384](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302124247384.png)
 
 我们发现，如果我们没有将`a`显示提交到暂存区，下一版本中是并不会自动提交新的`a`的。Kron提供的这种暂存区机制是很实用的，虽然我们工作目录中的文件是一致的，但是我们可以将工作目录的改变分批次添加到多个版本，这样很适合进行细粒度的版本管理。（比如我们可以根据更新的类型将部分文件分别按minor, major, critical的顺序提交到仓库，这样很适合做回看和整理）
 
 好，那让我们把`a`提交到新版本的暂存区中吧！
 
-![image-20190302125337897](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302125337897.png)
+![image-20190302125337897](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302125337897.png)
 
 如果这时候恰巧来了个只会rm命令的熊孩子，把工作区中的所有文件全删掉了，你们猜`Kron`会怎么处理？
 
@@ -117,7 +117,7 @@ $ kron commit -m 'initial commit (added file a)'
 $ kron commit -m 'added b and c, modified a'
 ```
 
-![image-20190302131000795](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302131000795.png)
+![image-20190302131000795](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302131000795.png)
 
 
 
@@ -127,7 +127,7 @@ $ kron commit -m 'added b and c, modified a'
 $ kron checkout master
 ```
 
-![image-20190302131113361](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302131113361.png)
+![image-20190302131113361](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302131113361.png)
 
 
 
@@ -137,7 +137,7 @@ $ kron checkout master
 $ kron serve -t test
 ```
 
-![image-20190302133313160](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302133313160.png)
+![image-20190302133313160](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302133313160.png)
 
 小明`clone`到了我的仓库很激动，马上就搞了起来，他先`checkout`到了一开始只有`a`文件的版本，然后在里面偷偷写上了一堆不具名的乱码，想覆盖我最新的版本。
 
@@ -147,11 +147,11 @@ $ kron serve -t test
 $ kron checkout 478e693
 ```
 
-![image-20190302134104577](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302134104577.png)
+![image-20190302134104577](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302134104577.png)
 
 结果他大失所望，找到了我问我为啥提交不了。我笑了笑跟他说，版本（Revision）的命运，虽然要靠自己奋斗，但也要考虑到历史的进程啊，你想通过修改过去的版本来修改我最新的版本，这当然是行不通的啦。你看当你`checkout`到我主（master）分支的历史版本的那一刻，Kron就已经提示了你进入`DETACHED`模式了。
 
-![image-20190302134656562](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302134656562.png)
+![image-20190302134656562](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302134656562.png)
 
 小明轻轻的点了点头，但是还是不太明白这跟普通的HEAD有什么区别，我说在`DETACHED`模式下，可以任意查看当时版本的目录，但是如果有过修改的话，需要在这个历史版本下建立新的分支，这样你的修改既不会影响到我的版本，你也能在这个基础上继续提交更多的版本，这何乐而不为呢。在我的提示下，小明成功添加了新的分支。
 
@@ -162,7 +162,7 @@ $ kron branch add xiaoming
 $ kron heads
 ```
 
-![image-20190302140129255](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302140129255.png)
+![image-20190302140129255](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302140129255.png)
 
 
 
@@ -173,9 +173,9 @@ $ kron heads
  $ kron cat -b master a
 ```
 
-![image-20190302140848894](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302140848894.png)
+![image-20190302140848894](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302140848894.png)
 
-![image-20190302140452001](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302140452001.png)
+![image-20190302140452001](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302140452001.png)
 
 
 
@@ -185,7 +185,7 @@ $ kron heads
 $ kron pull http://192.168.1.13/xiaomings_kron_test.kron xiaoming
 ```
 
-![image-20190302141459818](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302141459818.png)
+![image-20190302141459818](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302141459818.png)
 
 
 
@@ -195,7 +195,7 @@ $ kron pull http://192.168.1.13/xiaomings_kron_test.kron xiaoming
 $ kron merge xiaoming
 ```
 
-![image-20190302141952397](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302141952397.png)
+![image-20190302141952397](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302141952397.png)
 
 
 

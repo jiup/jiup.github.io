@@ -1,11 +1,11 @@
 # Site settings
 title: Jiupeng Zhang
 SEOTitle: Jiupeng Zhang's Blog
-header-img: https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/home-bg.jpg
+header-img: https://github.com/jiup/jiup.github.io/raw/master/img/home-bg.jpg
 email: jiupeng.zhang@gmail.com
 description: "Developing, Travelling, Exploring"
 keyword: "Jiupeng Zhang, Zapler, @Zapler, Jiupeng Zhang's Blog, Zapler's Blog, 张九鹏, 张九鹏的博客, 博客, 个人网站"
-url: "https://blog.zhangjiupeng.com"              # your host, for absolute URL
+url: "https://blog.jiupeng.me"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -71,7 +71,7 @@ disqus_username: Zapler
 
 # Google Analytics
 ga_track_id: 'UA-79365960-3'            # Format: UA-xxxxxx-xx
-#ga_domain: blog.zhangjiupeng.com
+#ga_domain: blog.jiupeng.me
 
 
 

@@ -55,7 +55,7 @@ tags:
 
 网络爬虫（也称网络蜘蛛），简单来说就是一个可按照指定规则，自动化浏览网络内容的机器人程序，其最基本的工作原理如下图所示：
 
-![image-20190302164925858](https://github.com/ZhangJiupeng/zhangjiupeng.github.io/raw/master/img/in-post/image-20190302164925858.png)
+![image-20190302164925858](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20190302164925858.png)
 
 给定一初始URL集合，将其加入到任务队列中，程序便准备就绪了。爬虫运行时，按照特定的顺序依次访问队列中的URL/组。接下来，一方面对感兴趣的内容进行筛选及持久化，一边提取网页中的外链，将新的URL集合进行筛选和调整，然后加回到任务队列中等待下一轮爬取，直到满足特定终止条件时，便终止程序。
 
@@ -135,4 +135,4 @@ Robots.txt，以文本形式存储在服务器根目录下，用来声明哪些�
 
 本文所有权归作者所有，禁止未经许可的转载，违者将追究相关责任。
 
-原始链接：<https://zhangjiupeng.github.io/2016/10/22/web-crawlers/>
+原始链接：<https://jiup.github.io/2016/10/22/web-crawlers/>
