@@ -28,7 +28,7 @@ Game AI for Tic-Tac-Toe and its variants (9x9 Advanced Tic-Tac-Toe and Ultimate 
 
 ###### Nov 2017 – Apr 2018
 
-A customized e-commerce backend system I built used [Spring4](https://spring.io/). Its RESTful API documentation was rendered by SwaggerUI. I've customized the BotDetect captcha toolkit and extended some Spring annotations for simpler identity validation...
+A customized e-commerce backend system I built used [Spring4](https://spring.io/). Its RESTful API documentation was rendered by SwaggerUI. I've customized the BotDetect captcha toolkit and extended some Spring annotations for simpler identity validation.
 
 ![demo](https://github.com/jiup/ecom/raw/master/.github/DEMO_IMAGES/d4.png)
 
@@ -40,7 +40,7 @@ A customized e-commerce backend system I built used [Spring4](https://spring.io/
 
 ###### Dec 2016 – Jun 2017
 
-A B/S program helps people to extract formatted web content without coding. It was built on top of my crawler framework – [Gospy](https://github.com/jiup/gospy) and is quite easy to extend for it's fully modulized design. It's no more a messy job to do scheduler configuration, cross-node collaboration, and anonymous crawling. I designed the front-end myself and built it as a single page application. It even has multiple themes :-)
+A B/S program helps people to extract formatted web content without coding. It was built on top of my crawler library – [Gospy](https://github.com/jiup/gospy) and is quite easy to extend for it's fully modulized design. It's no more a messy job to do scheduler configuration, cross-node collaboration, and anonymous crawling. I designed the front-end myself and built it as a single page application. It even has multiple themes :-)
 
 ![demo](https://github.com/ZhangJiupeng/Chollima/raw/master/doc/demo.gif)
 
@@ -68,7 +68,7 @@ A Socks5 network traffic proxy based on Netty, which offered several strategies 
 
 My very first try to design and implement some sort of "framework". This project armed my object-oriented programming skills(e.g. Java reflection, annotations, dynamic proxies, and XML/DTD parsing), and helped me construct a deeper understanding of Structs/Spring framework families when figuring out my code design hence it deserves to be listed here.
 
-Actually this was not expected to be a real-life utility, but through this self-driven experience, I've learned a lot from source code reading, design patterns practice, abstraction trade-offs...
+Actually this was not expected to be a real-life utility, but through this self-driven experience, I've learned a lot from source code reading, design patterns practice and abstraction trade-offs...
 
 <br/>
 
@@ -78,7 +78,7 @@ Actually this was not expected to be a real-life utility, but through this self-
 
 ###### Feb 2019 – Mar 2019
 
-(~~no longer maintained~~) A responsive website offers free URL translating, supports password protection, expiration settings, and access statistics by time and geographic distribution.
+[~~no longer maintained~~] A responsive website offers free URL translating, supports password protection, expiration settings, and access statistics by time and geographic dimensions.
 
 ![image-20191127223007755](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20191127164925854.png)
 
@@ -96,5 +96,5 @@ An experimental file share and collaboration platform.
 
 ![image-20191127393857204](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20191127393857204.jpg)
 
-CSS/Canvas based family tree generation (adjusted for Chinese kinship semantic structure)
+CSS/Canvas based family tree generation, adjusted for Chinese kinship semantic structure.
 
