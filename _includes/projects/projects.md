@@ -98,3 +98,8 @@ An experimental file share and collaboration platform.
 
 CSS/Canvas based family tree generation, adjusted for Chinese kinship semantic structure.
 
+<br/>
+
+<br/>
+
+More projects are available at <https://github.com/zhangjiupeng>, <https://github.com/jiup>. Welcome to [email me](mailto:jiupeng.zhang@outlook.com) if you are interested in any details.
