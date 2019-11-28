@@ -96,7 +96,7 @@ An experimental file share and collaboration platform.
 
 ![image-20191127393857204](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20191127393857204.jpg)
 
-CSS/Canvas based family tree generation, adjusted for Chinese kinship semantic structure.
+CSS&Canvas mixed family tree generation, adjusted for Chinese kinship semantic structure.
 
 <br/>
 
