@@ -6,7 +6,7 @@ date:       2018-11-13 14:49:00
 author:     "Jiupeng Zhang"
 header-img: "img/in-post/coding_2.jpg"
 tags:
-    - Portflio
+    - Portfolio
 ---
 
 # Kron | 分布式版本控制系统
