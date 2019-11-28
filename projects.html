@@ -1,0 +1,12 @@
+---
+layout: projects
+title: Projects
+title-text: Projects
+header-img: 'https://github.com/jiup/jiup.github.io/raw/master/img/post-bg-rwd.jpg'
+description: ""
+---
+
+<div class="post-container">
+    {% capture album_md %}{% include projects/projects.md %}{% endcapture %}
+    {{ album_md | markdownify }}
+</div>

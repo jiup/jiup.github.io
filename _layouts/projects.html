@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" style="color: #565656">
+
+{% include nav.html %}
+
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{% if page.header-img %}{{ page.header-img }}{% else %}none{% endif %}');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1 style="font-weight: 900">{% if page.title-text %}{{ page.title-text }}{% else if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+                    <!--<hr class="small">-->
+                    <span class="subheading">{{ page.description }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container">
+            {{ content }}
+        </div>
+    </div>
+</div>
+
+{% include footer.html %}

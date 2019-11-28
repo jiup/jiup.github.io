@@ -3,7 +3,7 @@ title: Jiupeng Zhang
 SEOTitle: Jiupeng Zhang's Blog
 header-img: https://github.com/jiup/jiup.github.io/raw/master/img/home-bg.jpg
 email: jiupeng.zhang@gmail.com
-description: "Developing, Travelling, Exploring"
+description: "Coding, Travelling, Exploring"
 keyword: "Jiupeng Zhang, Zapler, @Zapler, Jiupeng Zhang's Blog, Zapler's Blog, 张九鹏, 张九鹏的博客, 博客, 个人网站"
 url: "https://blog.jiupeng.me"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -15,10 +15,10 @@ RSS: false
 #weibo_username:     
 #zhihu_username:     
 github_username:    ZhangJiupeng
-instagram_username:    2ap1er
+instagram_username:    jiupeng_z
 #twitter_username:
 #facebook_username:  
-# linkedin_username:  firstname-lastname-idxxxx
+linkedin_username:  jiup
 
 
 
@@ -27,7 +27,7 @@ instagram_username:    2ap1er
 highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["portfolio","about.html","contact.html","resume"]
+exclude: ["about.html","contact.html","resume"]
 anchorjs: false                          # if you want to customize anchor. check out line:181 of `post.html`
 
 
