@@ -66,7 +66,7 @@ A Socks5 network traffic proxy based on Netty, which offered several strategies 
 
 ###### Nov 2015 – Jan 2016
 
-My very first try to design and implement some sort of "framework". This project armed my object-oriented programming skills(e.g. Java reflection, annotations, dynamic proxies, and XML/DTD parsing), and helped me construct a deeper understanding of Structs/Spring framework families when figuring out my code design hence it deserves to be listed here.
+My very first try to design and implement some sort of "framework". This project armed my object-oriented programming skills(e.g. Java reflection, annotations, dynamic proxies, and XML/DTD parsing), and helped me construct a deeper understanding of Struts/Spring framework families when figuring out my code design.
 
 Actually this was not expected to be a real-life utility, but through this self-driven experience, I've learned a lot from source code reading, design patterns practice and abstraction trade-offs...
 
