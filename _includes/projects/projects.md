@@ -92,7 +92,9 @@ Actually this was not expected to be a real-life utility, but through this self-
 
 ![image-20191127416345839](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20191127416345839.jpg)
 
+An experimental file share and collaboration platform.
+
 ![image-20191127393857204](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20191127393857204.jpg)
 
-![image-20191127569584932](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20191127569584932.png)
+CSS/Canvas based family tree generation (adjusted for Chinese kinship semantic structure)
 
