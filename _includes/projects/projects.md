@@ -58,6 +58,8 @@ A B/S program helps people to extract formatted web content without coding. It w
 
 A Socks5 network traffic proxy based on Netty, which offered several strategies to bypass specific firewalls. This project was hosted on [GitHub](https://github.com/zhangjiupeng/agentx) with 150+ stars and 500+ downloads.
 
+![demo](https://github.com/jiup/jiup.github.io/raw/master/img/in-post/image-20191224813217931.png)
+
 <br/>
 
 
