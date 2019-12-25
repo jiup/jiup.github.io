@@ -22,6 +22,8 @@ Harbin, China
 
 ![](https://github.com/jiup/jiup.github.io/raw/master/img/album/beijing.jpg)
 
+![](https://github.com/jiup/jiup.github.io/raw/master/img/album/beijing-2.jpg)
+
 <br>Jiangxi, China
 
 ![](https://github.com/jiup/jiup.github.io/raw/master/img/album/jiangxi.jpg)
