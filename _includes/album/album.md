@@ -56,6 +56,12 @@ Harbin, China
 
 ![](https://github.com/jiup/jiup.github.io/raw/master/img/album/gansu-3.jpg)
 
+![](https://github.com/jiup/jiup.github.io/raw/master/img/album/gansu-4.jpg)
+
+![](https://github.com/jiup/jiup.github.io/raw/master/img/album/gansu-5.jpg)
+
+![](https://github.com/jiup/jiup.github.io/raw/master/img/album/gansu-6.jpg)
+
 <br>Shanghai, China
 
 ![](https://github.com/jiup/jiup.github.io/raw/master/img/album/shanghai.jpg)
