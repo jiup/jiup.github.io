@@ -1,6 +1,3 @@
-> See the world differently.
-<br/>
-
 Harbin, China
 
 ![](https://github.com/jiup/jiup.github.io/raw/master/img/album/harbin.jpg)
@@ -116,3 +113,6 @@ Harbin, China
 ![](https://github.com/jiup/jiup.github.io/raw/master/img/album/la-7.jpg)
 
 ![](https://github.com/jiup/jiup.github.io/raw/master/img/album/sandiego.jpg)
+
+<br/>
+> See the world differently.
