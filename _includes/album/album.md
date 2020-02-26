@@ -1,6 +1,5 @@
-See the world differently.
+> See the world differently.
 <br/>
-
 
 Harbin, China
 
